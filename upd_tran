@@ -1,0 +1,17 @@
+#!/bin/bash
+d="localization"
+e="ClintockMod.jar"
+
+cd /home/fziv/.local/share/Steam/steamapps/common/SlayTheSpire/mods/clintock
+find $d -maxdepth 1 -name "*.json" -exec jar uf $e {} \;
+#jar uf $e "$d/Cardstrings.json"
+#jar uf $e "$d/Charstrings.json"
+#jar uf $e "$d/Keywordstrings.json"
+#jar uf $e "$d/Relicstrings.json"
+#jar uf $e "$d/Uistrings.json"
+/bin/cp -f $e ../
+
+
+
+
+

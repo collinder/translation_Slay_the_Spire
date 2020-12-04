@@ -1,0 +1,9 @@
+#!/bin/bash
+
+cd /home/fziv/.steam/steam/steamapps/common/SlayTheSpire/
+find ../../workshop/content/ -name \*.jar | while read line; do
+	if [ "$line" -nt "mods/$(basename $line)" ]
+	then
+		cp -f "$line" "mods/$(basename $line)"
+	fi
+done 

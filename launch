@@ -1,0 +1,4 @@
+#!/usr/bin/sh
+
+cd /home/fziv/.steam/steam/steamapps/common/SlayTheSpire/
+./jre/bin/java -jar ./ModTheSpire.jar
