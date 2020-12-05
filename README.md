@@ -14,7 +14,7 @@ upd_tran - for replacing json files within jar arhive. For every mod change path
 
 find_words.py - for finding all frequent words in json files.
 
-parse.py - for replacing words in jsons. Need to add translation within kwords.
+parse.py - for replacing words in jsons. Need to add translation within kwords and remove bad words for replacing.
 
 |text
 
