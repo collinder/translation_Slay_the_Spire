@@ -3,14 +3,18 @@ import re
 import os
 # -*- coding: utf-8 -*-
 def workfile(fil):
-	with open(fil,"r+") as f:
-		fa = f.read()
-	fa = fa.replace("#y","")
-	fa = fa.replace("#r","")
-	fa = fa.replace("#b","")
-	lst=re.findall(r"(\b[\w]+\b)",fa)
-	for i in lst:
-		d[(i.lower())] = d.get(i.lower(),0) + 1
+	if (os.path.getsize(fil) > 300):
+		print(fil)
+		with open(fil,"r+") as f:
+			fa = f.read()
+		fa = fa.replace("#y","")
+		fa = fa.replace("#r","")
+		fa = fa.replace("#b","")
+		lst=re.findall(r"(\b[\w]+\b)",fa)
+		for i in lst:
+			d[(i.lower())] = d.get(i.lower(),0) + 1
+	else:
+		print("file " + fil + " is too small")
 
 
 def trydel(key):

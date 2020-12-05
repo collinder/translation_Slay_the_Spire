@@ -14,21 +14,23 @@ def rpl(fil):
 						#print(type(word[w]))
 						if not isinstance(word[w],list):
 							for key in d.keys():
-								word[w] = re.sub(rf"{key}([\]-.,:\s]]|$)", rf"{d[key]}\1", word[w], flags=re.IGNORECASE)
+								word[w] = re.sub(rf"{key}([\(\-.,:\s\]]|$)", rf"{d[key]}\1", word[w], flags=re.IGNORECASE)
 			else:				
 				for word in data:
 					for w in data[word]:
 						if isinstance(data[word][w],list):
-							for ww in data[word][w]:
+							for lst in data[word][w]:
 								for key in d.keys(): 
-									ww = re.sub(rf"{key}([-.,:\s]]|$)", rf"{d[key]}\1", ww, flags=re.IGNORECASE)
+									lst = re.sub(rf"{key}([\(\-.,:\s\]]|$)", rf"{d[key]}\1", lst, flags=re.IGNORECASE)
 
 						else:
-							for key in d.keys(): 
-								data[word][w] = re.sub(rf"{key}([-.,:\s]]|$)", rf"{d[key]}\1", data[word][w], flags=re.IGNORECASE)
+							for key in d.keys():
+								#print(w) 
+								data[word][w] = re.sub(rf"{key}([\(\-.,:\s\]]|$)", rf"{d[key]}\1", data[word][w], flags=re.IGNORECASE)
 		with open(fil, "w") as f:
 			json.dump(data,f, indent=4)
-	
+	else:
+		print("file " + fil + " is too small")
 
 
 
@@ -40,7 +42,7 @@ with open(keyw,"r+") as dicti:
 	lines=dicti.readlines()
 	for l in lines:
 		a = l.split(" ")
-		print(a)
+		#print(a)
 		d[a[0]]=a[1].rstrip("\n")
 		d["#y"+a[0]]="#y" + a[1].rstrip("\n")
 		d["#y"+a[0]+"s"]="#y" + a[1].rstrip("\n")
