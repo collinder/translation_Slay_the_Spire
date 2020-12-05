@@ -14,18 +14,18 @@ def rpl(fil):
 						#print(type(word[w]))
 						if not isinstance(word[w],list):
 							for key in d.keys():
-								word[w] = re.sub(rf"{key}([.,:\s]|$)", rf"{d[key]}\1", word[w], flags=re.IGNORECASE)
+								word[w] = re.sub(rf"{key}([\]-.,:\s]]|$)", rf"{d[key]}\1", word[w], flags=re.IGNORECASE)
 			else:				
 				for word in data:
 					for w in data[word]:
 						if isinstance(data[word][w],list):
 							for ww in data[word][w]:
 								for key in d.keys(): 
-									ww = re.sub(rf"{key}([.,:\s]|$)", rf"{d[key]}\1", ww, flags=re.IGNORECASE)
+									ww = re.sub(rf"{key}([-.,:\s]]|$)", rf"{d[key]}\1", ww, flags=re.IGNORECASE)
 
 						else:
 							for key in d.keys(): 
-								data[word][w] = re.sub(rf"{key}([.,:\s]|$)", rf"{d[key]}\1", data[word][w], flags=re.IGNORECASE)
+								data[word][w] = re.sub(rf"{key}([-.,:\s]]|$)", rf"{d[key]}\1", data[word][w], flags=re.IGNORECASE)
 		with open(fil, "w") as f:
 			json.dump(data,f, indent=4)
 	
