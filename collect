@@ -1,9 +1,18 @@
 #!/bin/bash
 
 cd /home/fziv/.steam/steam/steamapps/common/SlayTheSpire/
-find ../../workshop/content/ -name \*.jar | while read line; do
-	if [ "$line" -nt "mods/$(basename $line)" ]
+echo $#
+if [ $# -gt 0 ]
 	then
-		cp -f "$line" "mods/$(basename $line)"
+		find ../../workshop/content/ -name "*$1*.jar"	-exec /bin/cp -f {} "mods/" \;
+	fi 
+find ../../workshop/content/ -name \*.jar | while read line; do
+	if [ ! -f "mods/$(basename $line)" ] || [ "$line" -nt "mods/$(basename $line)" ] 
+	then
+		/bin/cp -f "$line" "mods/"
 	fi
+if [ -f "/home/fziv/.local/share/Steam/steamapps/common/SlayTheSpire/mods/ModTheSpire.jar" ]
+then
+	mv -f "/home/fziv/.local/share/Steam/steamapps/common/SlayTheSpire/mods/ModTheSpire.jar" "./"
+fi
 done 
