@@ -132,4 +132,9 @@ Jedi: ну там тоже просто, в начале открывается,
 
 Ключевые слова из stslib - https://github.com/kiooeht/StSLib/blob/master/src/main/resources/localization/stslib/rus/keywords.json
 
+
+
+Слово Rucodeby:
+стандартные кейворды сфер пишутся через \u0a00 на кейпаде(вместо пробела)
+
 НАС МОЖНО НАЙТИ В ДИСКОРДЕ WarlockTD, в чатике Slay the Spire
